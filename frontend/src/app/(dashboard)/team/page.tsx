@@ -16,25 +16,25 @@ export default async function TeamPage() {
     {
       name: 'Kristen Angel Trinidad',
       role: 'Project Manager',
-      blurb: 'PLACEHOLDER',
+      blurb: 'Keeps the team organised, the tasks moving, and everyone pointed in roughly the same direction.',
       photo: '',
     },
     {
       name: 'Rian Joseph Laursen',
       role: 'Business Analyst',
-      blurb: 'PLACEHOLDER',
+      blurb: 'Turns client needs into requirements the team can actually build.',
       photo: '',
     },
     {
       name: 'Tate Barbuto',
       role: 'User Experience Designer',
-      blurb: 'PLACEHOLDER',
+      blurb: 'Focuses on making the project intuitive, usable, and nice to look at.',
       photo: '',
     },
     {
       name: 'Aryan Mehra',
       role: 'Developer',
-      blurb: 'PLACEHOLDER',
+      blurb: 'Turns ideas and designs into working software, building practical solutions that keeps the project running.',
       photo: '',
     },
   ]
