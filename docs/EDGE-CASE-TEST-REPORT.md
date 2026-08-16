@@ -10,11 +10,11 @@ This document records the basic edge-case testing performed for the Team Page an
 
 | Test Case | Expected Result | Actual Result | Status |
 |---|---|---|---|
-| Submit login with invalid credentials | User remains on login page and an appropriate error is displayed | Error displayed and login unsuccessful | PASS |
-| Attempt to access Team Page while logged out | User is prevented from accessing the protected page and redirected to login | User redirected to login | PASS |
-| Team member has no profile photo | Initials/avatar placeholder is displayed instead of a broken image | Initials displayed correctly | PASS |
-| Team member has an unusually long blurb | Text remains readable without breaking or overflowing the layout | Text displayed correctly | PASS |
-| View Team Page at a smaller screen size | Team member cards adjust to the available screen width | Layout remained usable | PASS |
+| Open the Team Page while logged out | User should not be able to view the Team Page and should be sent back to sign in | I was redirected back to the sign-in page and could not access the Team Page | PASS |
+| Team member has no profile photo | A placeholder/avatar should appear instead of a broken or missing image | The member initials were shown correctly as the placeholder | PASS |
+| Team member has a very long blurb | The text should stay readable and not break the card layout | The text stayed readable and the Read More option worked correctly | PASS |
+| Team member has a long name or role | The name/role should still fit without overlapping or breaking the card | The text stayed inside the card and remained readable | PASS |
+| View the Team Page on a smaller screen | The layout should adjust so the cards and text are still usable | The cards stacked properly and the page was still easy to read | PASS |
 
 ---
 
