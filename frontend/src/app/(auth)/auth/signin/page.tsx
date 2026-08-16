@@ -62,16 +62,23 @@ export default function SignInPage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="mx-auto w-full max-w-[350px] space-y-5">
+      {/* Page heading */}
       <div className="space-y-1 text-center">
-        <h1 className="text-2xl font-bold tracking-tight">Sign in</h1>
-        <p className="text-sm text-zinc-500">Enter your credentials to continue</p>
+        <h1 className="text-3xl font-normal text-zinc-900 dark:text-white">
+          Sign in
+        </h1>
+
+        <p className="text-xs text-zinc-600 dark:text-zinc-300">
+          Enter your credentials to continue
+        </p>
       </div>
 
+      {/* Google sign in */}
       <button
         type="button"
         onClick={handleGoogleSignIn}
-        className="flex w-full items-center justify-center gap-3 rounded-md border border-zinc-300 bg-white px-4 py-2.5 text-sm font-medium shadow-sm transition-colors hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800"
+        className="flex w-full items-center justify-center gap-3 rounded-md bg-zinc-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-zinc-400"
       >
         <svg className="h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
           <path
@@ -91,73 +98,84 @@ export default function SignInPage() {
             fill="#EA4335"
           />
         </svg>
+
         Continue with Google
       </button>
 
-      <div className="relative">
-        <div className="absolute inset-0 flex items-center">
-          <span className="w-full border-t border-zinc-200 dark:border-zinc-700" />
-        </div>
-        <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-zinc-50 px-2 text-zinc-400 dark:bg-zinc-950">or</span>
-        </div>
+      {/* Divider */}
+      <div className="-mx-4 flex items-center gap-3">
+        <div className="h-px flex-1 bg-zinc-400" />
+        <span className="text-sm text-zinc-600 dark:text-zinc-200">Or</span>
+        <div className="h-px flex-1 bg-zinc-400" />
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-        <div className="space-y-1.5">
-          <label htmlFor="email" className="text-sm font-medium">
+      {/* Email and password form */}
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        <div className="space-y-1">
+          <label
+            htmlFor="email"
+            className="text-sm font-normal text-zinc-900 dark:text-white"
+          >
             Email
           </label>
+
           <input
             id="email"
             type="email"
             autoComplete="email"
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? 'email-error' : undefined}
-            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm shadow-sm placeholder:text-zinc-400 focus:ring-2 focus:ring-zinc-500 focus:outline-none aria-invalid:border-red-500 dark:border-zinc-700 dark:bg-zinc-900"
+            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-950 outline-none placeholder:text-zinc-500 focus:border-zinc-400 focus:ring-2 focus:ring-zinc-300 aria-invalid:border-red-500"
             placeholder="you@example.com"
             {...register('email')}
           />
+
           {errors.email && (
-            <p id="email-error" className="text-xs text-red-500" role="alert">
+            <p id="email-error" className="text-xs text-red-400" role="alert">
               {errors.email.message}
             </p>
           )}
         </div>
 
-        <div className="space-y-1.5">
-          <div className="flex items-center justify-between">
-            <label htmlFor="password" className="text-sm font-medium">
-              Password
-            </label>
-          </div>
+        <div className="space-y-1">
+          <label
+            htmlFor="password"
+            className="text-sm font-normal text-zinc-900 dark:text-white"
+          >
+            Password
+          </label>
+
           <input
             id="password"
             type="password"
             autoComplete="current-password"
             aria-invalid={!!errors.password}
             aria-describedby={errors.password ? 'password-error' : undefined}
-            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm shadow-sm placeholder:text-zinc-400 focus:ring-2 focus:ring-zinc-500 focus:outline-none aria-invalid:border-red-500 dark:border-zinc-700 dark:bg-zinc-900"
+            className="w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-950 outline-none placeholder:text-zinc-500 focus:border-zinc-400 focus:ring-2 focus:ring-zinc-300 aria-invalid:border-red-500"
             placeholder="••••••••"
             {...register('password')}
           />
+
           {errors.password && (
-            <p id="password-error" className="text-xs text-red-500" role="alert">
+            <p id="password-error" className="text-xs text-red-400" role="alert">
               {errors.password.message}
             </p>
           )}
         </div>
 
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full rounded-md bg-black px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
-        >
-          {isSubmitting ? 'Signing in…' : 'Sign in'}
-        </button>
+        <div className="pt-3">
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full rounded-md bg-white px-4 py-2 text-sm font-medium text-black transition-colors hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {isSubmitting ? 'Signing in…' : 'Sign in'}
+          </button>
+        </div>
       </form>
 
-      <p className="text-center text-sm text-zinc-500">
+      {/* Account creation link */}
+      <p className="text-left text-xs text-zinc-500 dark:text-zinc-300">
         Don&apos;t have an account?{' '}
         <Link
           href="/auth/signup"
